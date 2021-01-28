@@ -1,0 +1,25 @@
+﻿@model eShopLegacyMVC.ViewModel.PaginatedItemsViewModel<eShopLegacyMVC.Models.CatalogItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2">
+            @Html.Action("Index", "CatalogStatistics")
+        </div>
+        <div class="col-10">
+            <div class="esh-table">
+                <p class="esh-link-wrapper">
+                    @Html.ActionLink("Create New", "Create", null, new { @class = "btn esh-button esh-button-primary" })
+                </p>
+
+                @Html.Partial("CatalogTable", Model.Data)
+
+                @Html.Partial("CatalogPaging", Model)
+            </div>
+        </div>
+    </div>
+</div>
+
