@@ -26,7 +26,7 @@ namespace eShopLegacyMVC.Models.Infrastructure
             AddCatalogBrands(context);
             AddCatalogItems(context);
             AddCatalogItemPictures();
-            
+
         }
 
         private void AddCatalogTypes(CatalogDBContext context)
@@ -53,7 +53,7 @@ namespace eShopLegacyMVC.Models.Infrastructure
                 ? GetCatalogBrandsFromFile()
                 : PreconfiguredData.GetPreconfiguredCatalogBrands();
 
-            foreach(var brand in preconfiguredBrands)
+            foreach (var brand in preconfiguredBrands)
             {
                 if (context.CatalogBrands.FirstOrDefault(x => x.Id.Equals(brand.Id)) == null)
                 {
@@ -119,7 +119,7 @@ namespace eShopLegacyMVC.Models.Infrastructure
             };
         }
 
-        static IEnumerable<CatalogBrand> GetCatalogBrandsFromFile()
+        IEnumerable<CatalogBrand> GetCatalogBrandsFromFile()
         {
             var contentRootPath = HostingEnvironment.ApplicationPhysicalPath;
             string csvFileCatalogBrands = Path.Combine(contentRootPath, "Setup", "CatalogBrands.csv");
@@ -155,7 +155,7 @@ namespace eShopLegacyMVC.Models.Infrastructure
             };
         }
 
-        static IEnumerable<CatalogItem> GetCatalogItemsFromFile(CatalogDBContext context)
+        IEnumerable<CatalogItem> GetCatalogItemsFromFile(CatalogDBContext context)
         {
             var contentRootPath = HostingEnvironment.ApplicationPhysicalPath;
             string csvFileCatalogItems = Path.Combine(contentRootPath, "Setup", "CatalogItems.csv");
@@ -314,13 +314,6 @@ namespace eShopLegacyMVC.Models.Infrastructure
             return csvheaders;
         }
 
-        private static int GetSequenceIdFromSelectedDBSequence(CatalogDBContext context, string dBSequenceName)
-        {
-            var rawQuery = context.Database.SqlQuery<Int64>($"SELECT NEXT VALUE FOR {dBSequenceName}");
-            var sequenceId = (int)rawQuery.Single();
-            return sequenceId;
-        }
-
         private void AddCatalogItemPictures()
         {
             if (!useCustomizationData)
@@ -333,7 +326,7 @@ namespace eShopLegacyMVC.Models.Infrastructure
             {
                 file.Delete();
             }
-            
+
             string zipFileCatalogItemPictures = Path.Combine(contentRootPath, "Setup", "CatalogItems.zip");
             ZipFile.ExtractToDirectory(zipFileCatalogItemPictures, picturePath.ToString());
         }
