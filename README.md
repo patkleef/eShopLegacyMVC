@@ -4,6 +4,26 @@ This legacy MVC application is build with ASP.NET 4.7.2. Follow the steps below 
 
 ## Upgrade
 
+- [Portability analyzers](#portability-analyzers)
+- [try-convert](#try-convert)
+- [Create wwwroot folder](#create-wwwroot-folder)
+- [Migrate `packages.config`](#migrate-packages.config)
+  - [Manually modifications](#manually-modifications)
+- [Migrate `Global.asax`](#migrate-global.asax)
+- [Remove files](#remove-files)
+- [Static files](#static-files)
+- [Configuration](#configuration)
+- [`App_Start` migration](#app_start-migration)
+- [MVC Controllers](#mvc-controllers)
+  - [Action/Partial to Component](#action-partial-to-component)
+- [Migrate ASP.NET Web API to ASP.NET Core](#migrate-asp.net-web-api-to-asp.net-core)
+- [Sessions](#sessions)
+- [Dependency injection](#dependency-injection)
+- [Logging](#logging)
+- [EntityFramework](#entityframework)
+  - [Migrations](#migrations)
+- [Blazor](#blazor)
+
 ### Portability analyzers
 
 Optionally, you can use of the following portability analyzers before you start the upgrade. These tools will analyze assemblies and provides a detailed report about the impact of porting application to specified .NET platform(s).
@@ -15,7 +35,7 @@ Optionally, you can use of the following portability analyzers before you start 
 
 For non-web application, you can use the `try-convert` tool. This tool will try to migrate your .NET Framework project. Find more info [here](https://github.com/dotnet/try-convert). Unfortunately, it doesn't work for web application like the eShopLegacyMVC project.
 
-### Create wwwroot folder in root
+### Create wwwroot folder
 
 - Move Content to wwwroot/css/
 - Move Scripts to wwwroot/scripts/
@@ -79,7 +99,7 @@ The migrate tool is of course not a magically tool that will do all work. There 
 
 > Find upgraded `.csproj` [here](TODO: link to upgraded project).
 
-### Migrate Global.asax
+### Migrate `Global.asax`
 
 - Create `Program.cs`
 - Create `Startup.cs`
@@ -108,7 +128,7 @@ Read about configurations [here](https://docs.microsoft.com/en-us/aspnet/core/mi
 - Move settings (`UseMockData` and `UseCustomizationData`) to `appsettings.json` Create parent element `DataSettings`
 - Learn how to work with options [here](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-5.0)
 
-### App_Start migration
+### `App_Start` migration
 
 - `BundleConfig.cs`
   - Install `BuildBundlerMinifier` NuGet package
@@ -141,7 +161,7 @@ Learn about components [here](https://docs.microsoft.com/en-us/aspnet/core/mvc/v
 
 Read more [here](https://docs.microsoft.com/en-us/aspnet/core/migration/webapi?view=aspnetcore-5.0)
 
-### Work with sessions
+### Sessions
 
 - `services.AddSession()` call in `Startup.cs`
 - `app.UseSession()` call in `Startup.cs`
@@ -179,7 +199,7 @@ Read more about `Microsoft.Extensions.Logging` [here](https://docs.microsoft.com
   ```
 - Update CatalogService
 
-### Add migration
+#### Migrations
 
 If all compile errors have been fixed add a migration to set up the database.
 
