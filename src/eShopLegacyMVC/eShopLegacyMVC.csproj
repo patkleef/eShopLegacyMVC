@@ -216,7 +216,6 @@
     <Compile Include="Controllers\CatalogStatisticsController.cs" />
     <Compile Include="Controllers\PicController.cs" />
     <Compile Include="Models\Infrastructure\CatalogDBInitializer.cs" />
-    <Compile Include="Models\CatalogItemHiLoGenerator.cs" />
     <Compile Include="Controllers\CatalogController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -253,15 +252,6 @@
     <Content Include="Images\main_banner.png" />
     <Content Include="Images\main_footer_text.png" />
     <Content Include="log4Net.xml" />
-    <Content Include="Models\Infrastructure\dbo.catalog_brand_hilo.Sequence.sql">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Infrastructure\dbo.catalog_hilo.Sequence.sql">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Infrastructure\dbo.catalog_type_hilo.Sequence.sql">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Pics\1.png" />
     <Content Include="Pics\10.png" />
     <Content Include="Pics\11.png" />

@@ -28,11 +28,12 @@ namespace eShopLegacyMVC.Models
 
         void ConfigureCatalogType(EntityTypeConfiguration<CatalogType> builder)
         {
-            builder.ToTable("CatalogType");
+            builder.ToTable("CatalogTypes");
 
             builder.HasKey(ci => ci.Id);
 
             builder.Property(ci => ci.Id)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None)
                .IsRequired();
 
             builder.Property(cb => cb.Type)
@@ -42,11 +43,12 @@ namespace eShopLegacyMVC.Models
 
         void ConfigureCatalogBrand(EntityTypeConfiguration<CatalogBrand> builder)
         {
-            builder.ToTable("CatalogBrand");
+            builder.ToTable("CatalogBrands");
 
             builder.HasKey(ci => ci.Id);
 
             builder.Property(ci => ci.Id)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None)
                .IsRequired();
 
             builder.Property(cb => cb.Brand)
@@ -56,12 +58,11 @@ namespace eShopLegacyMVC.Models
 
         void ConfigureCatalogItem(EntityTypeConfiguration<CatalogItem> builder)
         {
-            builder.ToTable("Catalog");
+            builder.ToTable("CatalogItems");
 
             builder.HasKey(ci => ci.Id);
 
             builder.Property(ci => ci.Id)
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None)
                 .IsRequired();
 
             builder.Property(ci => ci.Name)

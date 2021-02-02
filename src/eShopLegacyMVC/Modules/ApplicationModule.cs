@@ -33,9 +33,6 @@ namespace eShopLegacyMVC.Modules
 
             builder.RegisterType<CatalogDBInitializer>()
                 .InstancePerLifetimeScope();
-
-            builder.RegisterType<CatalogItemHiLoGenerator>()
-                .SingleInstance();
         }
     }
 }
