@@ -123,7 +123,7 @@ Follow steps [here](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/st
 
 Read about configurations [here](https://docs.microsoft.com/en-us/aspnet/core/migration/configuration?view=aspnetcore-5.0).
 
-- Create `appsettings.json`
+- Create `appsettings.json` manually or in VS choose `App Settings File` in `Add new Item` dialog
 - Create `ConnectionStrings` with `DefaultConnection`. Get connection string from `web.config`
 - Move settings (`UseMockData` and `UseCustomizationData`) to `appsettings.json` Create parent element `DataSettings`
 - Learn how to work with options [here](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-5.0)
