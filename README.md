@@ -86,7 +86,6 @@ The migrate tool is of course not a magically tool that will do all work. There 
 
 **Install**
 
-- `Microsoft.AspNetCore.Mvc.Core` 2.2.5
 - `Microsoft.EntityFrameworkCore.SqlServer` version 5.0.2
 - `Microsoft.EntityFrameworkCore.Design` version 5.0.2
 
