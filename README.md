@@ -110,6 +110,7 @@ Follow steps [here](https://docs.microsoft.com/en-us/aspnet/core/migration/prope
 
 - `AssemblyInfo.cs`
 - `web.config`
+  - if you are running .NET Core app in IIS you will need to keep web.config and [migrate](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/iis/web-config?view=aspnetcore-5.0).
 - `Global.asax`
 - `ApplicationInsights.config`
 - `App.config`
